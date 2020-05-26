@@ -68,6 +68,7 @@
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DbPathiOS.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -135,8 +136,11 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\TodoTasks\TodoTasks.csproj">
-      <Project>{DB46C30F-D7F1-4DCA-AA5D-A583900EDB35}</Project>
+      <Project>{3DA53EAD-64B3-4D83-B294-85A62AE66588}</Project>
       <Name>TodoTasks</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Tasksdb.db3" />
   </ItemGroup>
 </Project>
