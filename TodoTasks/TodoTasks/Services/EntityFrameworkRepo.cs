@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
-using Z.EntityFramework.Extensions;
 
 namespace TodoTasks.Services
 {
@@ -17,7 +16,7 @@ namespace TodoTasks.Services
         {
             _dbContext = dbContext;
 
-            EntityFrameworkManager.ContextFactory = context => new DbContextChild();
+         
 
 
         }
@@ -51,7 +50,7 @@ namespace TodoTasks.Services
 
         public int Insert(TEntity entity)
         {
-            _dbContext.Set<TEntity>().SingleInsert(entity);
+            _dbContext.Set<TEntity>().Add(entity);
             return _dbContext.SaveChanges();
         }
 
@@ -78,20 +77,7 @@ namespace TodoTasks.Services
         }
 
 
-        public object BulkInsert(IEnumerable<TEntity> entities)
-        {
-
-            _dbContext.BulkInsert<TEntity>(entities, options => options.IncludeGraph = true);
-            _dbContext.BulkSaveChanges();
-            return 1;
-        }
-
-        public object BulkMerge(IEnumerable<TEntity> entities)
-        {
-
-            return 1;
-        }
-
+      
 
     }
 }

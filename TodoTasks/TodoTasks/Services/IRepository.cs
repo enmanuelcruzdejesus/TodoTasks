@@ -34,9 +34,6 @@ namespace TodoTasks.Services
 
 
 
-        object BulkInsert(IEnumerable<TEntity> entities);
-
-        object BulkMerge(IEnumerable<TEntity> entities);
 
 
 

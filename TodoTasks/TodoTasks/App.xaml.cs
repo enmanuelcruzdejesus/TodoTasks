@@ -1,4 +1,5 @@
 ﻿using System;
+using Acr.UserDialogs;
 using TodoTasks.Services;
 using TodoTasks.Views;
 using Xamarin.Forms;
@@ -10,8 +11,8 @@ namespace TodoTasks
     {
         private Database _db;
 
-        public static string DbName { get { return "taskdb"; } }
-        public static string DbFileName { get { return "taskdb.db3"; } }
+        public static string DbName { get { return "Tasksdb"; } }
+        public static string DbFileName { get { return "Tasksdb.db3"; } }
         public static string DbPath { get { return DependencyService.Get<IDbPath>().GetConnection(DbName,DbFileName); } }
 
 
@@ -30,8 +31,23 @@ namespace TodoTasks
         {
             InitializeComponent();
 
-            MainPage = new HomePage();
+            MainPage = new NavigationPage(new TaskPage());
         }
+
+        public static void ToastDialogError(string msg, double time = 2000)
+        {
+            ToastConfig.DefaultBackgroundColor = System.Drawing.Color.Red;
+            ToastConfig.DefaultActionTextColor = System.Drawing.Color.White;
+            UserDialogs.Instance.Toast(msg, TimeSpan.FromMilliseconds(time));
+        }
+
+        public static void ToastDialogAlert(string msg, double time = 2000)
+        {
+            ToastConfig.DefaultBackgroundColor = System.Drawing.Color.Blue;
+            ToastConfig.DefaultActionTextColor = System.Drawing.Color.White;
+            UserDialogs.Instance.Toast(msg, TimeSpan.FromMilliseconds(time));
+        }
+
 
         protected override void OnStart()
         {

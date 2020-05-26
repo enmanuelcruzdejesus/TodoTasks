@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms"
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          x:Class="TodoTasks.Views.CheckMarkViewCell">
+  <Grid Padding="15,0,0,0">
+    <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>  
+          <ColumnDefinition Width="70"/>                                    
+    </Grid.ColumnDefinitions> 
+        
+    <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+
+      <Label x:Name="lblTitle" Grid.Row="0" Grid.Column="0" Style="{StaticResource titleLabelStyle}"/>
+      <Image Source="checkmark2" Grid.Row="0" Grid.Column="1" Aspect="AspectFill" HorizontalOptions="Center" />              
+ </Grid>
+</ViewCell>

@@ -16,19 +16,17 @@ namespace TodoTasks.iOS
             var documentsFolder = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             var libraryFolder = Path.Combine(documentsFolder, "..", "Library");
             string dbPath = Path.Combine(libraryFolder, dbFile);
-            CopyIfNotExist(dbPath,dbName);
+            CopyIfNotExist(dbPath);
             return dbPath;
-
-
 
         }
 
-        private static void CopyIfNotExist(string dbPath,string dbName)
+        private static void CopyIfNotExist(string dbPath)
         {
             if (!File.Exists(dbPath))
             {
                 var app = (App)App.Current;
-                var sourcePath = NSBundle.MainBundle.PathForResource(dbName, ".db3");
+                var sourcePath = NSBundle.MainBundle.PathForResource(App.DbName, ".db3");
                 File.Copy(sourcePath, dbPath);
             }
         }

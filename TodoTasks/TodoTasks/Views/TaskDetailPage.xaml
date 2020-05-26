@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TodoTasks.Views.TaskDetailPage"
+             Title="Detail"
+             Padding="5,20,5,0">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="FillAndExpand">
+                <Label Text="TaskId" Style="{StaticResource titleLabel2Style}"/>
+                <Entry x:Name="taksidEntry" IsEnabled="False" Text="{Binding Task.taskid}" Style="{StaticResource entryStyle}"/>
+
+                <Label Text="Task Name" Style="{StaticResource titleLabel2Style}"/>
+                <Entry x:Name="tasknameEntry"   Text="{Binding Task.taskname}" Style="{StaticResource entryStyle}"/>
+
+                <Label Text="Completed" Style="{StaticResource titleLabel2Style}"/>
+                <Switch IsToggled="{Binding Task.completed}" ></Switch>
+
+                <Label Text="Created" Style="{StaticResource titleLabel2Style}" />
+                <Entry x:Name="createdDateEntry" IsEnabled="False" Text="{Binding Task.created}" Style="{StaticResource entryStyle}"/>
+
+                 <StackLayout Padding="5,10,5,5">
+                      <Button x:Name="btnGenerateOrder" Text="Save" Style="{StaticResource buttonStyle}" Command="{Binding SaveCommand}"/>
+                    <Button x:Name="btnCancel" Text="Delete" TextColor="{StaticResource textColor}" BackgroundColor="Red" Command="{Binding DeleteCommand}"/>
+                 </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
